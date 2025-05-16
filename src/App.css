@@ -1,38 +1,214 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+}
+
 .App {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  background: #f9f9f9;
+  color: #111;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+.hero img {
+  max-width: 160px;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 720px;
+  margin: auto;
+  margin-bottom: 2rem;
+  color: #444;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+button.primary {
+  background-color: #e5b80b;
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button.primary:hover {
+  transform: scale(1.05);
+}
+
+button.secondary {
+  background-color: transparent;
+  color: #e5b80b;
+  border: 2px solid #e5b80b;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.secondary:hover {
+  background-color: #fef8dc;
+  transform: scale(1.05);
+}
+
+section {
+  margin: 4rem 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #111;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Features */
+.features .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* How It Works & Pricing Lists */
+.section-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-content ol,
+.section-content ul {
+  list-style-position: inside;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding-left: 0;
+  margin: 2rem auto;
+}
+
+/* Specific checklist (ul with custom bullets) */
+.checklist {
+  list-style: none;
+}
+
+.checklist li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 0;
+}
+
+.checklist li::before {
+  content: "✓";
+  color: #e5b80b;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Pricing tag */
+.price-tag {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Launch quote */
+.launch blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  color: #666;
+  margin-top: 1rem;
+  font-style: italic;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+footer.cta-footer {
+  background: #f6f6f6;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 16px;
+  margin-top: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .features .grid {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button.primary,
+  button.secondary {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .section-content ol,
+  .section-content ul {
+    padding-left: 0;
   }
 }
